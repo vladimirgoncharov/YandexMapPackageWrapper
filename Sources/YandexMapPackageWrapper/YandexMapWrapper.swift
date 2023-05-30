@@ -1,7 +1,7 @@
 import Foundation
 import YandexMapsMobile
 
-final class YandexMapWrapper {
+public final class YandexMapWrapper {
     static func run(apiKey: String,
                     locale: String?) {
         YMKMapKit.setApiKey(apiKey)
