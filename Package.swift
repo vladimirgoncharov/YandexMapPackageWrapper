@@ -40,6 +40,7 @@ let package = Package(
                     .linkedFramework("CoreLocation"),
                     .linkedFramework("CoreTelephony"),
                     .linkedFramework("SystemConfiguration"),
+                    .linkedFramework("CoreMotion"),
                     .linkedLibrary("c++"),
                     .unsafeFlags(["-ObjC"]),
                 ])
