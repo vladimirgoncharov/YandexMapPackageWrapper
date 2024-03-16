@@ -21,7 +21,7 @@ let package = Package(
         // Dependencies declare other packages that this package depends on.
         .package(
             url: "https://github.com/c-villain/YandexMapsMobileLite",
-            .exact("4.5.1")
+            .revision("0e542d93d83c729f4845833591eaa2d925a1c996")
         ),
     ],
     targets: [
