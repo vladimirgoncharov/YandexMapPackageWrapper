@@ -3,6 +3,7 @@
 YandexMaps Package. Supports only iOS 12+.
 
 1. Connect the package via SPM. Use revesion hash intead versions. [The reason](https://forums.swift.org/t/override-for-unsafeflags-in-swift-package-manager/45273)
+
 2. Add new Build Phases script:
 
 ```
@@ -20,10 +21,14 @@ do
 
     # Save the exit code, which indicates success v. failure
     exitCode=$?
+    echo "Exit code - ${exitCode}"
 
-    if (( exitCode != 0 )) 
-    then 
-        /usr/libexec/PlistBuddy -c "Add ${key} string 12.0" "${filePath}"
+    if [ ${exitCode} -eq 0 ]
+    then
+        echo "MinimumOSVersion exists already in ${filePath}. Ignored."
+    else
+        /usr/libexec/PlistBuddy -c "Add ${key} string 100.0" "${filePath}"
+        echo "Added MinimumOSVersion to ${filePath}"
     fi
 done
 ```
