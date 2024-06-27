@@ -7,11 +7,23 @@ YandexMaps Package. Supports only iOS 12+.
 
 ```
 frameworks=(
-  YandexMapsMobile.framework
+    YandexMapsMobile.framework
 )
 
 for framework in "${frameworks[@]}"
-do  
-  /usr/libexec/PlistBuddy -c "Set :MinimumOSVersion string 12.0" "${TARGET_BUILD_DIR:?}"/"${FRAMEWORKS_FOLDER_PATH}/$framework/Info.plist"
+do
+    filePath="${TARGET_BUILD_DIR:?}"/"${FRAMEWORKS_FOLDER_PATH}/$framework/Info.plist"
+    key=":MinimumOSVersion"
+
+    # Query and save the value; suppress any error message, if key not found.
+    val=$(/usr/libexec/PlistBuddy -c "Print ${key}" "${filePath}">/dev/null)
+
+    # Save the exit code, which indicates success v. failure
+    exitCode=$?
+
+    if (( exitCode != 0 )) 
+    then 
+        /usr/libexec/PlistBuddy -c "Add ${key} string 12.0" "${filePath}"
+    fi
 done
 ```
