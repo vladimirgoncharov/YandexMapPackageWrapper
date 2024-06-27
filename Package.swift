@@ -41,6 +41,7 @@ let package = Package(
                     .linkedFramework("CoreTelephony"),
                     .linkedFramework("SystemConfiguration"),
                     .linkedFramework("CoreMotion"),
+                    .linkedFramework("DeviceCheck"),
                     .linkedLibrary("c++"),
                     .unsafeFlags(["-ObjC"]),
                 ])
