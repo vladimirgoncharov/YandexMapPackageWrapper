@@ -1,6 +1,6 @@
 # YandexMapPackageWrapper
 
-YandexMaps Package. Supports only iOS 12+.
+YandexMaps Package. Supports only iOS 13+.
 
 1. Connect the package via SPM. Use revesion hash intead versions. [The reason](https://forums.swift.org/t/override-for-unsafeflags-in-swift-package-manager/45273)
 
